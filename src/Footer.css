@@ -1,0 +1,29 @@
+
+.footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(1, 1, 1, 0.5);
+    color: #000;
+    text-align: center;
+    overflow: hidden;
+    height: 40px; 
+    transition: height 0.5s;
+  }
+  
+  .footer-content {
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    color: white;
+  }
+  
+  .footer:hover {
+    height: 200px;
+  }
+  
+  .footer:hover .footer-content {
+    opacity: 1;
+  }
+  

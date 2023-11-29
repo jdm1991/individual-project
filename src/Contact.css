@@ -1,0 +1,51 @@
+.background-image-contact {
+    background-image: url('https://img.freepik.com/free-photo/solid-painted-concrete-wall-textured-backdrop_53876-110679.jpg?size=626&ext=jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center; 
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    width: 90%; 
+    max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 90%;
+    padding: 15px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+.contact-form button {
+    padding: 15px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}

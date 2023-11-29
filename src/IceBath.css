@@ -1,0 +1,24 @@
+.ice-bath-background {
+    display: grid;
+    place-items: center; 
+    background-image: url('https://www.orbitfitness.com.au/img/cms/Ice%20Bath%20Benefits%20The%20Real%20Deal%20or%20Just%20Hype.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.ice-bath-background::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    pointer-events: none; 
+    z-index: -1; 
+}

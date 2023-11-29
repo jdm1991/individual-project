@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap');
+
+.header-gradient-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.logo {
+  width: 7vw;
+  height: 12vh;
+  margin-left: 1vw;
+  filter: brightness(80%);
+  grid-column: 1;
+}
+
+.navbar-title {
+  grid-column: 2;
+  font-size: 2.1rem;
+  color: white;
+  margin-left: 10px;
+  font-family: 'Sora', Arial, sans-serif;
+}
+  

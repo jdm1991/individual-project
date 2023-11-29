@@ -1,0 +1,8 @@
+.background-image {
+    background-image: url('https://images.alphacoders.com/132/1326367.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}

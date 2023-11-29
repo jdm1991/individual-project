@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat&family=Inter&display=swap');
+
+.content-box h1 {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 100px auto; 
+    grid-template-rows: 100vh; 
+    position: relative; 
+    height: 100vh;
+    width: 100vw;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2; 
+    width: 10vw; /* Adjust based on your design */
+    height: 45vh; /* Adjust based on your design */
+    background-color: rgba(255, 255, 255, 0.086); 
+    border-radius: 10px; 
+}
+
+.icon-container img {
+    width: 20%; /* Relative to the container */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10% 0; /* Space between icons */
+}
+
+
+@media (min-width: 768px) {
+    .icon-container::before {
+        width: 7vw;
+        height: 50vh;
+    }
+
+    .icon-container img {
+        width: 3vw;
+        height: 10vh
+    }
+}
+
+.fullscreen-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+.content-box {
+    grid-column: 2; 
+    grid-row: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    z-index: 2; 
+    place-self: center; 
+    max-width: 70%;
+}
+
+.content-box h1 {
+    color: white;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
+    margin-top: 0rem;
+}
+
+.content-box p {
+    color: white;
+}
+

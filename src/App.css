@@ -1,0 +1,33 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.App-content {
+  position: relative;
+  z-index: 1;
+}
+
+.App-header {
+  display: flex; 
+  align-items: center; 
+  justify-content: start; 
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.App-content {
+  grid-column: 1 / -1; 
+  grid-row: 2 / 3; 
+  z-index: 1;
+}
