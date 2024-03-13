@@ -15,7 +15,6 @@ export default function WorkoutTracker() {
   });
 
   const updateExercise = (index, key, value) => {
-    // Update an exercise at a specific index
     const updatedExercises = currentWorkout.exercises.map((exercise, i) =>
       i === index ? { ...exercise, [key]: value } : exercise
     );
@@ -23,7 +22,6 @@ export default function WorkoutTracker() {
   };
 
   const addExercise = () => {
-    // Add a new blank exercise
     setCurrentWorkout({
       ...currentWorkout,
       exercises: [
@@ -34,9 +32,7 @@ export default function WorkoutTracker() {
   };
 
   const finalizeWorkout = () => {
-    // Finalize the workout and add it to the workouts list
     setWorkouts([...workouts, currentWorkout]);
-    // Reset currentWorkout
     setCurrentWorkout({
       date: "",
       exercises: [{ bodyArea: "upper", name: "", weight: null, reps: null, sets: null }],

@@ -1,0 +1,101 @@
+.contact-us-page{
+    border-bottom: solid 8px black;
+    background-image: url('https://th-thumbnailer.cdn-si-edu.com/E3krJrbWME_2D07CO1PdJDtORW4=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/f2/94/f294516b-db3d-4f7b-9a60-ca3cd5f3d9b2/fbby1h_1.jpg') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    padding-top: 2rem;
+}
+
+.contact-us-textbox {
+    background: rgba(249, 249, 249, 0.726);
+    padding: 20px;
+    max-width: 80%;
+    border-radius: 10px;
+    margin-bottom: 3.7rem;
+    margin-right: 3rem;
+    margin-left: 2rem;
+    border-left: black solid 2px;
+    border-top: black solid 2px;
+    border-bottom: black solid 1px;
+    border-right: black solid 1px;
+  }
+  
+  .contact-us-title h3 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #004225
+}
+
+  
+  .contact-us-text p {
+    font-size: 1rem;
+    font-weight: 350;
+    margin-bottom: 2rem;
+    color: black;
+  }
+
+  .contact-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 3rem;
+  }
+  
+  /* Style for the title section */
+  .intouch-title {
+    max-width: 50%;
+    margin-right: 2rem;
+    color: white;
+    text-shadow: -1px -2px 0 #000, 2px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .intouch-title h1 {
+    font-family: 'Exo 2', sans-serif;
+    margin-top: 9rem;
+    font-size: 2rem;
+    display: flex;
+    text-align: center;
+  }
+  
+  /* Styles for the form container */
+  .contact-form-container {
+    background: rgba(249, 249, 249, 0.726);
+    padding: 20px;
+    width: 50%;
+    border-radius: 10px;
+    margin-bottom: 3.7rem;
+    border: solid 2px black;
+    border-bottom: solid 1px black;
+  }
+  
+  /* Input and textarea styling */
+  .contact-form input,
+  .contact-form textarea {
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Button styling */
+  .contact-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #004225;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .contact-form button:hover {
+    background-color: #0e80ad;
+  }
+  

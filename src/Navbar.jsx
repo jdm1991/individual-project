@@ -7,10 +7,10 @@ export default function Navbar() {
             <ul>
                 <li>
                     <Link to="/workout-tracker">Workout Tracker</Link>
-                    {/* <div className="dropdown-menu">
-                        <Link to="/workout-tracker/page1">Page 1</Link>
-                        <Link to="/workout-tracker/page2">Page 2</Link>
-                    </div> */}
+                    <div className="dropdown-menu">
+                        <Link to="/WorkoutTrackerPage1">Favourite Workouts</Link>
+                        <Link to="/workout-tracker">Workout Tracker</Link>
+                    </div>
                 </li>
                 <li>
                     <Link to="/icebath">Ice Bath</Link>
