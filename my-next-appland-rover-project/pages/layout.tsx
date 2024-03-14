@@ -1,6 +1,7 @@
 import "../pages/layout.css";
 import Link from "next/link";
 import { useState } from "react";
+import { BsDoorOpen } from "react-icons/bs";
 
 export default function Layout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,12 +42,6 @@ export default function Layout({ children }) {
                 Accessories
               </Link>
               <Link
-                href="/owners"
-                className="text-gray-800 hover:bg-gray-100 px-3 py-7 rounded-md text-lg font-medium"
-              >
-                Owners
-              </Link>
-              <Link
                 href="/Service"
                 className="text-gray-800 hover:bg-gray-100 px-3 py-7 rounded-md text-lg font-medium"
               >
@@ -58,6 +53,15 @@ export default function Layout({ children }) {
               >
                 Contact Us
               </Link>
+              <div className="flex items-center hover:bg-gray-100 rounded-md">
+                <Link
+                  href="/portal"
+                  className="text-gray-800 px-3 py-7 rounded-md text-lg font-medium"
+                >
+                  Portal
+                </Link>
+                <BsDoorOpen className="text-gray-800 text-2xl" />
+              </div>
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
@@ -146,7 +150,7 @@ export default function Layout({ children }) {
       <main>{children}</main>
 
       <footer className="bg-white pt-12 pb-24 px-4 sm:px-6 lg:px-8">
-  <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="md:flex md:justify-between">
             <div className="mb-8 md:mb-0">
               <a href="/" className="flex items-center">

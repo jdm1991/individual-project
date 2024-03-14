@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { PrismaClient } from "@prisma/client";
 import "../app/globals.css";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const prisma = new PrismaClient();
 
 export default function Accessories({ accessories }) {
   const [selectedAccessory, setSelectedAccessory] = useState(null);
   const [basket, setBasket] = useState([]);
+  const router = useRouter();
 
   const formatCurrency = (value) => {
     const priceInPounds = value / 100;
@@ -124,7 +126,7 @@ export default function Accessories({ accessories }) {
                     </div>
                   </div>
                   <button
-                    className="bg-[#004225] text-white border-none py-4 px-8 text-base cursor-pointer rounded"
+                    className="bg-[#004225] text-white border-none py-4 px-8 text-base cursor-pointer rounded hover:bg-[#006633]"
                     onClick={() => addToBasket(selectedAccessory)}
                   >
                     Add to Cart
@@ -171,7 +173,15 @@ export default function Accessories({ accessories }) {
                   <span className="font-bold">Total:</span>
                   <span>{formatCurrency(getTotalPrice())}</span>
                 </div>
-                <button className="bg-[#004225] text-white border-none py-4 px-8 text-base cursor-pointer rounded mt-4">
+                <button
+                  className="bg-[#004225] text-white border-none py-4 px-8 text-base cursor-pointer rounded mt-4 hover:bg-[#006633]"
+                  onClick={() =>
+                    router.push({
+                      pathname: "/checkoutPage",
+                      query: { basket: JSON.stringify(basket) },
+                    })
+                  }
+                >
                   Checkout
                 </button>
               </div>
