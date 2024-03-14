@@ -142,9 +142,9 @@ export default function Accessories({ accessories }) {
                 {basket.map((item) => (
                   <div
                     key={item.id}
-                    className="grid grid-cols-[1fr_auto_auto] items-center gap-4 mb-2"
+                    className="flex items-center justify-between mb-2"
                   >
-                    <span>{item.name}</span>
+                    <div className="flex-1 truncate mr-4">{item.name}</div>
                     <div className="flex items-center">
                       <button
                         className="bg-gray-200 px-2 py-1 rounded"
@@ -152,7 +152,9 @@ export default function Accessories({ accessories }) {
                       >
                         -
                       </button>
-                      <span className="mx-2">{item.quantity}</span>
+                      <span className="mx-2 w-6 text-center">
+                        {item.quantity}
+                      </span>
                       <button
                         className="bg-gray-200 px-2 py-1 rounded"
                         onClick={() => addToBasket(item)}
@@ -160,7 +162,9 @@ export default function Accessories({ accessories }) {
                         +
                       </button>
                     </div>
-                    <span>{formatCurrency(item.price * item.quantity)}</span>
+                    <div className="w-20 text-right">
+                      {formatCurrency(item.price * item.quantity)}
+                    </div>
                   </div>
                 ))}
                 <div className="flex justify-between mt-4">
