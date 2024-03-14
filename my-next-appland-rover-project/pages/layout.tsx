@@ -1,4 +1,3 @@
-import "../pages/layout.css";
 import Link from "next/link";
 import { useState } from "react";
 import { BsDoorOpen } from "react-icons/bs";

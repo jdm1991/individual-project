@@ -4,7 +4,6 @@ import Image from "next/image";
 import Layout from "../pages/layout";
 import "../pages/indexstyle.css";
 
-
 export default function index() {
   function toggleMenu() {
     const menu = document.querySelector(".menu-links");
@@ -205,6 +204,33 @@ export default function index() {
                 Explore
               </button>
             </div>
+          </div>
+        </section>
+        <section className="relative text-left border-t-8  border-b-8 border-black">
+          <img
+            src="https://media.jlrms.com/styles/low_res/s3/2021-02-09/image/ccee40d2-97ae-4ee4-bc98-cfdfac7addf9/L_Classic_Trophy_100221_21_1.jpeg?VersionId=oHlUExiOlEfpi.SYuDGkPiqv3UY7TYRj&itok=Y-ZGl86R"
+            alt="Defender-services"
+            className="w-full h-auto"
+          />
+          <div className="absolute bottom-0 left-0 bg-white bg-opacity-70 p-5 max-w-[80%] rounded-lg mb-14 ml-12 border-l border-black border-b border-black">
+            <h1 className="text-5xl font-medium mb-4">Service & Maintenance</h1>
+            <p className="text-lg font-semibold mb-8">
+              At our dealership, we understand the importance of keeping your
+              Land Rover Defender in pristine condition. Our team of highly
+              skilled technicians is dedicated to providing exceptional service
+              and maintenance, ensuring your beloved vehicle remains a reliable
+              and high-performing companion on every adventure. From routine
+              inspections and scheduled maintenance to complex repairs and
+              restorations, we utilize the latest diagnostic tools and genuine
+              Land Rover parts to preserve the integrity and longevity of your
+              Defender. Our state-of-the-art service facilities are equipped to
+              handle everything from minor tune-ups to complete overhauls,
+              guaranteeing that your vehicle receives the utmost care and
+              attention to detail.
+            </p>
+            <button className="bg-[#004225] rounded-lg text-white border-none py-2 px-4 font-['Outfit'] text-base cursor-pointer transition duration-300 ease-in-out hover:bg-gray-600 w-32">
+              Learn More
+            </button>
           </div>
         </section>
       </Layout>
