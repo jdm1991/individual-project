@@ -25,3 +25,11 @@ model Cars {
   description String
   identifier String?
 }
+
+model Accessories {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
+  imageUrl  String  @map("image_url")
+}

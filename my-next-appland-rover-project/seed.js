@@ -77,9 +77,37 @@ const carData = [
   },
 ];
 
+const accessories = [
+  {
+    name: "Floor Mats",
+    description: "Premium rubber layer for the floor of your foot temple",
+    price: 2999,
+    imageUrl: "https://i.imgur.com/1CGyZr3.jpg",
+  },
+  {
+    name: "Fluffy Dice",
+    description: "Become the syle master you were born to be.",
+    price: 2999,
+    imageUrl: "https://i.imgur.com/kXYDiKi.jpg",
+  },
+  {
+    name: "Gear Knob",
+    description: "Premium gear knob for your manual vehicle.",
+    price: 8999,
+    imageUrl: "https://i.imgur.com/AHnRMAt.jpg",
+  },
+  {
+    name: "Ladder",
+    description: "Ladder for climbing up and down your stylish ride.",
+    price: 15999,
+    imageUrl: "https://i.imgur.com/2FlLuv2.jpg",
+  },
+];
+
 async function clearDatabase() {
   try {
     await prisma.cars.deleteMany();
+    await prisma.accessories.deleteMany();
     console.log("Database cleared successfully.");
   } catch (error) {
     console.error(`Error clearing database: ${error.message}`);
@@ -92,6 +120,7 @@ async function main() {
   // Clear the database
   await clearDatabase();
 
+  // Seed the Cars table
   for (const car of carData) {
     try {
       const newCar = await prisma.cars.create({
@@ -103,9 +132,20 @@ async function main() {
     }
   }
 
+  // Seed the Accessories table
+  for (const accessory of accessories) {
+    try {
+      const newAccessory = await prisma.accessories.create({
+        data: accessory,
+      });
+      console.log(`Created accessory with id: ${newAccessory.id}`);
+    } catch (error) {
+      console.error(`Error creating accessory: ${error.message}`);
+    }
+  }
+
   console.log("Seeding finished.");
 }
-
 main()
   .catch((e) => console.error(e))
   .finally(async () => {
