@@ -1,24 +1,35 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const withAuth = (WrappedComponent) => {
-  return (props) => {
+  const AuthenticatedComponent = (props) => {
     const router = useRouter();
-    const token = localStorage.getItem("token");
-    const isAuthenticated = !!token;
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-      if (!isAuthenticated) {
-        router.replace("/login");
-      }
-    }, [isAuthenticated, router]);
+      // Check if the user is authenticated
+      const checkAuth = async () => {
+        // Implement your authentication logic here
+        const isAuthenticated = true; // Replace with your authentication check
 
-    if (isAuthenticated) {
-      return <WrappedComponent {...props} />;
+        if (isAuthenticated) {
+          setIsLoggedIn(true);
+        } else {
+          router.push("/portal");
+        }
+      };
+
+      checkAuth();
+    }, []);
+
+    if (!isLoggedIn) {
+      return null;
     }
 
-    return null;
+    return <WrappedComponent {...props} isLoggedIn={isLoggedIn} />;
   };
+
+  return AuthenticatedComponent;
 };
 
 export default withAuth;

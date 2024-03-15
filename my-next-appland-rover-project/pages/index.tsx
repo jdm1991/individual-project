@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import Image from "next/image";
 import Layout from "../pages/layout";
 import "../pages/indexstyle.css";
+import Link from "next/link";
 
 export default function index() {
   function toggleMenu() {
@@ -108,9 +109,11 @@ export default function index() {
             </p>
             <div className="flex items-center justify-between">
               <p className="text-3xl font-light">Priced from: £23,998</p>
-              <button className="bg-[#004225] rounded-full text-white border-none py-3 px-8 font-['Outfit'] text-base cursor-pointer transition duration-300 ease-in-out hover:bg-[#002d18] focus:outline-none focus:ring-2 focus:ring-[#004225] focus:ring-offset-2">
-                Explore the Range
-              </button>
+              <Link href="/vehicles">
+                <button className="bg-[#004225] rounded-full text-white border-none py-3 px-8 font-['Outfit'] text-base cursor-pointer transition duration-300 ease-in-out hover:bg-[#002d18] focus:outline-none focus:ring-2 focus:ring-[#004225] focus:ring-offset-2">
+                  Explore the Range
+                </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -159,9 +162,11 @@ export default function index() {
               design and modern technology, the Defender 110 is a testament to
               enduring automotive craftsmanship and off-road supremacy.
             </p>
-            <button className="bg-[#004225] rounded-lg text-white border-none py-2 px-4 font-['Outfit'] text-base cursor-pointer transition duration-300 ease-in-out hover:bg-gray-600 w-32">
-              Explore
-            </button>
+            <Link href="/vehicles">
+              <button className="bg-[#004225] rounded-lg text-white border-none py-2 px-4 font-['Outfit'] text-base cursor-pointer transition duration-300 ease-in-out hover:bg-gray-600 w-32">
+                Explore
+              </button>
+            </Link>
           </div>
         </section>
         <section className="bg-white border-t-8 border-black h-[50vh] flex justify-center items-center">
@@ -200,9 +205,11 @@ export default function index() {
               life's adventures.
             </p>
             <div className="text-right">
-              <button className="bg-[#004225] rounded-lg text-white border-none py-2 px-4 font-['Outfit'] text-base cursor-pointer transition duration-300 ease-in-out hover:bg-gray-600 w-32">
-                Explore
-              </button>
+              <Link href="/accessories">
+                <button className="bg-[#004225] rounded-lg text-white border-none py-2 px-4 font-['Outfit'] text-base cursor-pointer transition duration-300 ease-in-out hover:bg-gray-600 w-32">
+                  Explore
+                </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -228,9 +235,11 @@ export default function index() {
               guaranteeing that your vehicle receives the utmost care and
               attention to detail.
             </p>
-            <button className="bg-[#004225] rounded-lg text-white border-none py-2 px-4 font-['Outfit'] text-base cursor-pointer transition duration-300 ease-in-out hover:bg-gray-600 w-32">
-              Learn More
-            </button>
+            <Link href="/Service">
+              <button className="bg-[#004225] rounded-lg text-white border-none py-2 px-4 font-['Outfit'] text-base cursor-pointer transition duration-300 ease-in-out hover:bg-gray-600 w-32">
+                Explore
+              </button>
+            </Link>
           </div>
         </section>
       </Layout>

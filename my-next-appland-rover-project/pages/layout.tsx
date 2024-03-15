@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { BsDoorOpen } from "react-icons/bs";
 
-export default function Layout({ children }) {
+export default function Layout({ children, isLoggedIn }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function toggleMenu() {
@@ -53,12 +53,21 @@ export default function Layout({ children }) {
                 Contact Us
               </Link>
               <div className="flex items-center hover:bg-gray-100 rounded-md">
-                <Link
-                  href="/portal"
-                  className="text-gray-800 px-3 py-7 rounded-md text-lg font-medium"
-                >
-                  Portal
-                </Link>
+                {isLoggedIn ? (
+                  <Link
+                    href="/admin"
+                    className="text-gray-800 px-3 py-7 rounded-md text-lg font-medium"
+                  >
+                    Admin
+                  </Link>
+                ) : (
+                  <Link
+                    href="/portal"
+                    className="text-gray-800 px-3 py-7 rounded-md text-lg font-medium"
+                  >
+                    Portal
+                  </Link>
+                )}
                 <BsDoorOpen className="text-gray-800 text-2xl" />
               </div>
             </div>

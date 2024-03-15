@@ -1,12 +1,14 @@
+// AdminConsole.js
 import React, { useState } from "react";
 import { PrismaClient } from "@prisma/client";
 import Layout from "./layout";
 import "../app/globals.css";
 import withAuth from "./utils/withAuth";
+import { BsDoorOpen } from "react-icons/bs";
 
 const prisma = new PrismaClient();
 
-const AdminConsole = () => {
+const AdminConsole = ({ isLoggedIn, handleLogout }) => {
   const [newAccessory, setNewAccessory] = useState({
     name: "",
     description: "",
@@ -63,11 +65,22 @@ const AdminConsole = () => {
   const addAccessory = async () => {
     if (validateAccessory()) {
       try {
-        const createdAccessory = await prisma.accessories.create({
-          data: newAccessory,
+        const response = await fetch("/api/accessories", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newAccessory),
         });
-        console.log("New accessory created:", createdAccessory);
-        // Optionally, you can reset the form fields or perform additional actions
+
+        if (response.ok) {
+          // Accessory created successfully
+          console.log("New accessory created");
+          // Optionally, you can reset the form fields or perform additional actions
+        } else {
+          // Handle error
+          console.error("Error creating accessory");
+        }
       } catch (error) {
         console.error("Error creating accessory:", error);
       }
@@ -77,11 +90,22 @@ const AdminConsole = () => {
   const addVehicle = async () => {
     if (validateVehicle()) {
       try {
-        const createdVehicle = await prisma.cars.create({
-          data: newVehicle,
+        const response = await fetch("/api/vehicles", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newVehicle),
         });
-        console.log("New vehicle created:", createdVehicle);
-        // Optionally, you can reset the form fields or perform additional actions
+
+        if (response.ok) {
+          // Vehicle created successfully
+          console.log("New vehicle created");
+          // Optionally, you can reset the form fields or perform additional actions
+        } else {
+          // Handle error
+          console.error("Error creating vehicle");
+        }
       } catch (error) {
         console.error("Error creating vehicle:", error);
       }
@@ -97,10 +121,24 @@ const AdminConsole = () => {
     }
   };
 
+  handleLogout = () => {
+    // Implement your logout logic here
+    console.log("Logout clicked");
+  };
+
   return (
-    <Layout>
+    <Layout isLoggedIn={isLoggedIn}>
       <div className="container mx-auto py-8">
-        <h1 className="text-3xl font-bold mb-4">Admin Console</h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold">Admin Console</h1>
+          <button
+            onClick={handleLogout}
+            className="flex items-center bg-[#004225] text-white border-none py-2 px-4 text-base cursor-pointer rounded-md hover:bg-[#006633]"
+          >
+            <BsDoorOpen className="text-white text-2xl mr-2" />
+            Logout
+          </button>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl font-bold mb-2">Add Accessory</h2>
@@ -187,7 +225,7 @@ const AdminConsole = () => {
             </div>
             <button
               onClick={addAccessory}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="bg-[#004225] text-white border-none py-4 px-8 text-base cursor-pointer rounded-md w-full mt-4 hover:bg-[#006633]"
             >
               Add Accessory
             </button>
@@ -367,7 +405,7 @@ const AdminConsole = () => {
             </div>
             <button
               onClick={addVehicle}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="bg-[#004225] text-white border-none py-4 px-8 text-base cursor-pointer rounded-md w-full mt-4 hover:bg-[#006633]"
             >
               Add Vehicle
             </button>
@@ -377,7 +415,7 @@ const AdminConsole = () => {
           <h2 className="text-2xl font-bold mb-4">Contact Form Messages</h2>
           <button
             onClick={fetchContactMessages}
-            className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
+            className="bg-[#004225] text-white border-none py-4 px-8 text-base cursor-pointer rounded-md mb-4 hover:bg-[#006633]"
           >
             Fetch Messages
           </button>
