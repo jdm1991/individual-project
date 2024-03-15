@@ -148,7 +148,7 @@ export default function Layout({ children }) {
 
       <main>{children}</main>
 
-      <footer className="bg-white pt-12 pb-24 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-white pt-12 pb-24 px-4 sm:px-6 lg:px-8 border-t-8 border-black">
         <div className="max-w-7xl mx-auto">
           <div className="md:flex md:justify-between">
             <div className="mb-8 md:mb-0">

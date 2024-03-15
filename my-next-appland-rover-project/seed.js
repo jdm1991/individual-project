@@ -1,6 +1,14 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
+
+const User = {
+  name: "admin",
+  email: "admin@example.com",
+  password: "admin",
+  role: "admin",
+};
 
 const carData = [
   {
@@ -108,6 +116,7 @@ async function clearDatabase() {
   try {
     await prisma.cars.deleteMany();
     await prisma.accessories.deleteMany();
+    await prisma.user.deleteMany();
     console.log("Database cleared successfully.");
   } catch (error) {
     console.error(`Error clearing database: ${error.message}`);
@@ -119,6 +128,21 @@ async function main() {
 
   // Clear the database
   await clearDatabase();
+
+  // Seed the User table
+  const saltRounds = 10;
+  const hashedPassword = await bcrypt.hash(User.password, saltRounds);
+  try {
+    const newUser = await prisma.user.create({
+      data: {
+        email: User.email,
+        password: hashedPassword,
+      },
+    });
+    console.log(`Created user with id: ${newUser.id}`);
+  } catch (error) {
+    console.error(`Error creating user: ${error.message}`);
+  }
 
   // Seed the Cars table
   for (const car of carData) {
@@ -146,6 +170,7 @@ async function main() {
 
   console.log("Seeding finished.");
 }
+
 main()
   .catch((e) => console.error(e))
   .finally(async () => {

@@ -1,16 +1,39 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Layout from "./layout";
+import "../app/globals.css";
 
 export default function Portal() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform login logic here, e.g., send a request to the server
-    console.log("Username:", username);
-    console.log("Password:", password);
-  };
+ const handleSubmit = async (e) => {
+   e.preventDefault();
+
+   try {
+     const response = await fetch("/api/auth", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify({ email, password }),
+     });
+
+     if (response.ok) {
+       const { token } = await response.json();
+       localStorage.setItem("token", token);
+       router.push("/adminConsole");
+     } else {
+       const { message } = await response.json();
+       setError(message);
+     }
+   } catch (error) {
+     console.error(error);
+     setError("Something went wrong");
+   }
+ };
 
   return (
     <Layout>
@@ -27,16 +50,17 @@ export default function Portal() {
             />
           </div>
           <h2 className="text-xl mb-4">Admin/Staff Login</h2>
+          {error && <p className="text-red-500 mb-4">{error}</p>}
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="username" className="block mb-2">
-                Username
+              <label htmlFor="email" className="block mb-2">
+                Email
               </label>
               <input
                 type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>

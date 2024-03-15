@@ -99,7 +99,7 @@ export default function index() {
             />
           </div>
           <div className="absolute bottom-0 left-0 w-full text-black bg-gray-100 bg-opacity-80 text-left py-8 px-12 text-4xl font-semibold border-b border-black border-opacity-20 backdrop-filter backdrop-blur-md">
-            <h2 className="text-shadow-lg text-black font-['Exo_2'] font-bold text-5xl mb-4 tracking-wide">
+            <h2 className="text-shadow-lg text-black font-['Exo_2'] font-bold text-6xl mb-4 tracking-wide">
               Going where other vehicles don't dare.
             </h2>
             <p className="text-2xl font-light mb-8 text-gray-700 max-w-2xl">
