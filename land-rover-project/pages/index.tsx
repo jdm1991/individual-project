@@ -94,7 +94,7 @@ export default function index() {
           </div>
           <div className="flex-1 flex justify-center overflow-hidden mb-20">
             <img
-              src="https://www.twistedautomotive.com/assets/models/131-modified-land-rover-defender-90-1200x650r.jpg"
+              src="https://www.revogarage.com/wp-content/uploads/2020/07/DSC_4363-6.jpg"
               alt=""
               className="w-full h-[60%] object-cover"
             />
